@@ -1,0 +1,119 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Tegar R Putra">
+    <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+
+    <title>awesome-jr-frontend-tegar</title>
+
+    <link href="css/custom_1.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
+  </head>
+
+  <body ng-app="postman-tegar">
+
+      <!-- menu utama -->
+      <!-- <div class="navbar navbar-expand-md clip-bg-2 border"></div> -->
+      <nav class="navbar navbar-expand-md navbar-light nav-2">
+        <div class="container">
+        <a class="navbar-brand" href="#"><img src="img/git-white.png" style="max-width: 50px;height: auto;"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item ">
+              <a class="nav-link text-white" href="#">Features<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Business</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Explore</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Marketplace</a>
+            </li>        
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Pricing</a>
+            </li>
+          </ul>
+          <form class="form-inline">
+            <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search"/>
+            <button class="btn btn-outline-success border-white text-white" type="submit">Search</button>
+          </form>
+        </div>
+        </div>
+      </nav>
+
+      <!-- content -->
+      <div class="container mb-5" ng-controller="api">
+        <div class="row">
+        <!-- left side content -->
+          <div class="col-md-3 pt-3" id="profil" style="min-height: 500px;" >
+            <img id="avatar" src="{{apis.user_details.avatar_url}}" ng-init="apis.user_details.avatar_url='img/default-avatar.png'" class="img-fluid rounded mx-auto" style="max-width: 100%; height: auto; min-height: 250px;" alt="avatar" />
+            <div id="name" class="mt-2 font-mon-h3" ng-init="apis.user_details.name='NAMA LENGKAP'" ng-bind="apis.user_details.name"></div>
+            <div id="id_login" class="font-weight-light h4" ng-init="apis.user_details.login='id login'" ng-bind="apis.user_details.login"></div>
+            <div id="bio" class="my-2 font-lat" ng-init="apis.user_details.bio='Biografi'" ng-bind="apis.user_details.bio">Biografi</div>
+            <div id="block_report" class="my-2 font-weight-light font-lat"><a href="#">Block or report User</a></div>
+            <div id="developer" class="border-bottom border-top py-2 form-inline my-2"><img class="mr-2 brightness" style="max-width: 23px;height: auto;" src="img/fork-2.png" />developer program member</div>
+            <div class="form-inline"><img class="mr-2 brightness" style="max-width: 20px;height: auto;opacity: 0.7;" src="img/people.png" /><div id="company"><a href="https://github.com/labku" target="_blank" ng-init="apis.user_details.company='Nama Perusahaan'" ng-bind="apis.user_details.company"></a></div></div>
+            <div class="form-inline"><img class="mr-2 brightness" style="max-width: 20px;height: auto;opacity: 0.7;" src="img/map-point.png" /><div id="location" ng-init="apis.user_details.location='Lokasi'" ng-bind="apis.user_details.location">Lokasi</div></div>
+            <div id="email" ng-init="apis.user_details.email=''" ng-bind="apis.user_details.email"></div>
+            <div class="form-inline"><img class="mr-2 brightness" style="max-width: 20px;height: auto;opacity: 0.7;" src="img/link.png" /><div id="blog"><a href="{{apis.user_details.blog}}" target='_blank' ng-init="apis.user_details.blog='Alamat Blog'" ng-bind="apis.user_details.blog"></a></div></div>
+          </div>
+
+          <!-- right side content -->
+          <div class="col-md-9">
+            <div class="row pt-5" id="sub-header"><div class="col-md-12">
+              <ul class="nav nav-tabs" id="navbar2">
+                <li class="nav-item"><a class="nav-link active" href="#">Overview<span class="badge badge-secondary ml-1" id="overview_notif"></span></a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="#">Repositories<span ng-bind="apis.user_details.public_repos" class="badge badge-secondary ml-1" id="repo_notif"></span></a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="#">Stars<span ng-bind="apis.repo_starred.length" class="badge badge-secondary ml-1" id="stars_notif"></span></a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="#">Followers<span ng-bind="apis.user_details.followers" class="badge badge-secondary ml-1" id="followers_notif"></span></a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="#">Following<span ng-bind="apis.user_details.following" class="badge badge-secondary ml-1" id="following_notif"></span></a></li>
+              </ul>
+            </div></div>
+
+            <!-- pinned repo (get first 4 repo) -->
+            <div class='row mt-3'><div class='col-md-12 h5'>Pinned repositories</div></div>
+            <div class="row"><div class="col-md-12 font-lat" id="sub-content" starred-repo>
+            	<div class="d-flex align-items-center justify-content-center border rounded" style="min-height: 350px;width: auto;">
+					<div class="mr-2 font-weight-light">Wait the snake pass</div>
+	            	<div><img class="" src="img/Preloader_6.gif" style="" /></div>
+            	</div>
+        	</div></div>	
+
+            <!-- table contribution -->
+            <div class="row p-2"><div class="col-md-12" id="contribution">
+            	<div>1,787 contributions in the last year</div>
+            	<div class="row border rounded" ng-controller="contribution">
+            		<div class="col" id="table-contrib" contrib-table></div>
+            	</div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-end nav-2">
+	      <div class="mx-auto my-auto" style="color: white;">@awesome-jr-frontend-tegar</div>
+      </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- load postman-api js -->
+    <script src="js/angular.js"></script>
+    <!-- <script src="js/postman-jquery.js"></script> -->
+    <script src="js/postman-angular.js"></script>
+  </body>
+</html>

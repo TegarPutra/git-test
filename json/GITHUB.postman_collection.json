@@ -1,0 +1,88 @@
+{
+	"variables": [],
+	"info": {
+		"name": "GITHUB",
+		"_postman_id": "e2e4e0b9-2363-c96f-ca22-f17ebc33f545",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET USER DETAILS",
+			"request": {
+				"url": "https://api.github.com/users/andhikamaheva",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SEARCH REPOSITORIES",
+			"request": {
+				"url": "https://api.github.com/search/repositories?q=nodejs",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER FOLLOWERS",
+			"request": {
+				"url": "https://api.github.com/users/andhikamaheva/followers",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER FOLLOWING",
+			"request": {
+				"url": "https://api.github.com/users/andhikamaheva/following",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET REPOSITORIES STARRED",
+			"request": {
+				"url": "https://api.github.com/users/andhikamaheva/starred",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER REPOSITORIES",
+			"request": {
+				"url": "https://api.github.com/users/andhikamaheva/repos",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET REPOSITORY DETAILS",
+			"request": {
+				"url": "https://api.github.com/repos/andhikamaheva/andhikamaheva.github.io",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
